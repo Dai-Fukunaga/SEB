@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>予約カレンダー</title>
+    <a href="/">Go back to main menu</a>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+    <script>
+        $(document).ready(function() {
+            // Convert reservation data to an appropriate format
+            var events = {{ reservations|safe }};
+            // Initialize the calendar
+            $('#calendar').fullCalendar({
+                // Customize your calendar options
+                events: events
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>{{ space.name }}の予約カレンダー</h1>
+    <div id='calendar'></div>
+    <script>
+        $(document).ready(function() {
+            var events = [
+                // Convert each reservation to the proper format
+                {% for reservation in reservations %}
+                {
+                    title: 'User ID ' + '{{ reservation.user_id }}' + ': ' + '{{ reservation.start_time.strftime('%H:%M') }}' + ' 〜 ' + '{{ reservation.end_time.strftime('%H:%M') }}',
+                    start: '{{ reservation.start_time.strftime('%Y-%m-%dT%H:%M:%S') }}',
+                    end: '{{ reservation.end_time.strftime('%Y-%m-%dT%H:%M:%S') }}'
+                },
+                {% endfor %}
+            ];
+            // Initialize the calendar
+            $('#calendar').fullCalendar({
+                // Customize your calendar options
+                events: events,
+                displayEventTime: false  // Hide the default event time
+            });
+        });
+    </script>
+</body>
+</html>
+</html>
