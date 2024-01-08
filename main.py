@@ -11,7 +11,7 @@ db.init_app(app)
 
 @app.route('/')
 def index():
-    return "Welcome to the University Reservation System!"
+    return "ay yo wassuo"
 
 @app.route('/reserve', methods=['POST'])
 def create_reservation():
