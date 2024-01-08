@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Join Waiting List</title>
+</head>
+<body>
+    <h1>The space is already reserved for the given time.</h1>
+    <p>Would you like to join the waiting list?</p>
+    <form action="/join_waiting_list" method="post">
+        <input type="hidden" name="user_id" value="{{ user_id }}">
+        <input type="hidden" name="space_id" value="{{ space_id }}">
+        <input type="hidden" name="start_time" value="{{ start_time }}">
+        <input type="hidden" name="end_time" value="{{ end_time }}">
+        <input type="submit" value="Yes, join the waiting list">
+    </form>
+    <a href="/">No, go back to main menu</a>
+</body>
+</html>

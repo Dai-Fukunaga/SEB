@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>予約を確認する</title>
+</head>
+<body>
+    <h1>予約を確認する</h1>
+    <h2>Reservations</h2>
+    <ul>
+        {% for reservation in reservations %}
+            <li>
+                Reservation ID: {{ reservation.id }}, Space ID: {{ reservation.space_id }}, Start Time: {{ reservation.start_time }}, End Time: {{ reservation.end_time }}
+                <form method="post" action="/cancel">
+                    <input type="hidden" name="reservation_id" value="{{ reservation.id }}">
+                    <input type="submit" value="Cancel Reservation">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Waiting List</h2>
+    <ul>
+        {% for waiting in waiting_list %}
+            <li>
+                Waiting ID: {{ waiting.id }}, Space ID: {{ waiting.space_id }}, Waiting since: {{ waiting.timestamp }}
+                <form method="post" action="/cancel">
+                    <input type="hidden" name="waiting_id" value="{{ waiting.id }}">
+                    <input type="submit" value="Cancel Waiting">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Go back to main menu</a>
+</body>
+</html>

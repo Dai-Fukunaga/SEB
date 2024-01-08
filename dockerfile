@@ -16,6 +16,3 @@ EXPOSE 5000
 # Define environment variable
 ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
-
-# Run app.py when the container launches
-CMD ["flask", "run"]

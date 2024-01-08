@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservation Failed</title>
+</head>
+<body>
+    <h1>Sorry, the space is already reserved.</h1>
+    <p>You have been added to the waiting list for this space.</p>
+    <a href="{{ url_for('index') }}">Go back to main menu</a>
+    <a href="{{ url_for('waiting_list', space_id=space_id) }}">View waiting list</a>
+</body>
+</html>

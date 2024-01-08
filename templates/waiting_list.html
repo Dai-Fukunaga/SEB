@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Waiting List</title>
+</head>
+<body>
+    <h1>Waiting List for Space {{ space_id }}</h1>
+    <ul>
+        {% for waiting in waiting_queue %}
+            <li>User ID: {{ waiting.user_id }}, Waiting since: {{ waiting.timestamp }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Go back to main menu</a>
+</body>
+</html>

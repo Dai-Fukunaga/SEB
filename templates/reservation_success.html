@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservation Successful</title>
+</head>
+<body>
+    <h1>Reservation Created Successfully!</h1>
+    <p>Your reservation ID is: {{ reservation_id }}</p>
+    
+    <!-- Link to view this reservation on the calendar -->
+    <a href="/calendar/{{ space_id }}">View Your Reservation on the Calendar</a><br><br>
+
+    <!-- Link to go back to the main page -->
+    <a href="/">Go Back to Main Page</a>
+</body>
+</html>
