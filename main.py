@@ -17,7 +17,7 @@ def update_waiting_ids():
     for i, waiting in enumerate(waitings, start=1):
         waiting.queue_position = i
     db.session.commit()
-    
+
 @app.route('/')
 def index():
     spaces = Space.query.all()
@@ -29,7 +29,7 @@ def create_sample_spaces():
     sample_spaces = [
         {'name': 'ルーム１', 'description': '勉強できそうなばしょ'},
         {'name': '会議室', 'description': '３０人くらい入りそう/プロジェクター有り'},
-        {'name': '教室', 'description': 'イエベントとか授業が行えそうな場所'},
+        {'name': '教室', 'description': 'イベントとか授業が行えそうな場所'},
         # Add more sample spaces as needed
     ]
 
@@ -149,7 +149,7 @@ def cancel_waiting():
         """.format(waiting.user_id)
     else:
         return "Waiting not found."
-    
+
 @app.route('/join_waiting_list', methods=['POST'])
 def join_waiting_list():
     user_id = request.form['user_id']
