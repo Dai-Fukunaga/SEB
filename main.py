@@ -181,6 +181,9 @@ def calendar(space_id):
     app.logger.info("reservations: %s", reservations)
     return render_template('calendar.html', reservations=reservations, space=space)
 
+@app.route("/video")
+def video():
+    return render_template("video.html")
 
 with app.app_context():
     db.drop_all()  # Drops all tables only for dev use

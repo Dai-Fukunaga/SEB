@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>学生会館予約システム</title>
 </head>
+
 <body>
     <h1>学生会館予約システムへようこそ</h1>
-    
+
     <h2>予約をする</h2>
 
     <form action="/reserve" method="post">
         <label for="user_id">ユーザID:</label>
         <input type="number" id="user_id" name="user_id"><br><br>
-        
+
         <label for="space">Space:</label>
         <select id="space" name="space_id">
             {% for space in spaces %}
@@ -19,7 +21,7 @@
             {% endfor %}
         </select><br><br>
         {% if error %}
-            <p style="color: red;">{{ error }}</p>
+        <p style="color: red;">{{ error }}</p>
         {% endif %}
         <label for="start_time">開始時刻:</label>
         <input type="datetime-local" id="start_time" name="start_time" required><br><br>
@@ -29,12 +31,12 @@
 
         <input type="submit" value="Reserve">
     </form>
-    
+
     <h2>予約可能スペース</h2>
     <ul>
         {% for space in spaces %}
         <li>
-            {{ space.name }} - {{ space.description }} 
+            {{ space.name }} - {{ space.description }}
             - <a href="/calendar/{{ space.id }}">カレンダーを見る</a>
         </li>
         {% endfor %}
@@ -46,5 +48,9 @@
         <input type="number" id="user_id" name="user_id" required><br><br>
         <input type="submit" value="Check Reservation">
     </form>
+
+    <h2>DX人材育成</h2>
+    <a href="/video">シルバー人材育成ビデオ一覧</a>
 </body>
+
 </html>
