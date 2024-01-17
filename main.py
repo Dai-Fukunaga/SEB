@@ -3,7 +3,7 @@ from models import db, Reservation, Space, User, WaitingQueue
 from datetime import datetime
 import logging
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder = "./templates/img")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reservations.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
